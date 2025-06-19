@@ -1,10 +1,10 @@
 import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 // ------ Scene ------
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.set(0, 0, 45);
+camera.position.set(-50
+	, 35, 80);
 
 // ------ Background ------
 scene.environment = new THREE.CubeTextureLoader()
@@ -23,7 +23,6 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-// const controls = new OrbitControls(camera, renderer.domElement);
 
 // ------ Responsive Background ------
 window.addEventListener('resize', () => {
@@ -42,6 +41,10 @@ scene.add(directionalLight);
 
 const light = new THREE.AmbientLight(0xffffff);
 scene.add(light);
+
+const pointLight = new THREE.PointLight( 0xff0000, 1, 100 );
+pointLight.position.set( 25, 35, 40 );
+scene.add( pointLight );
 
 // #add8e6 Light blue
 // #13333e Dark blue
@@ -106,6 +109,11 @@ geoLine.material.color = 0x13333e;
 const oct = new THREE.Mesh(octGeo, octMat);
 const octPivot = new THREE.Object3D();
 
+// --- textured object ---
+
+
+
+
 // ------ Object added to the scene ------
 scene.add(mainSphere);
 scene.add(mainBox);
@@ -124,12 +132,12 @@ mainSphere.renderOrder = 1;
 window.addEventListener('wheel', (e) => {
 	if (e.deltaY > 0) {
 		mainBox.rotation.y += 0.5;
-		oct.rotation.y += 0.5;
-		octPivot.rotation.y += 0.05;
+		oct.rotation.x += 0.5;
+		octPivot.rotation.x += 0.05;
 	} else {
 		mainBox.rotation.y -= 0.5;
-		oct.rotation.y -= 0.5;
-		octPivot.rotation.y -= 0.05;
+		oct.rotation.x -= 0.5;
+		octPivot.rotation.x -= 0.05;
 	}
 });
 
@@ -137,10 +145,11 @@ window.addEventListener('wheel', (e) => {
 // ------ Animations ------
 function animate() {
 
+	mainBox.rotation.x += 0.015;
+
 	oct.rotation.y += 0.005;
 	octPivot.rotation.y += 0.005;
 
-	// controls.update();
 	renderer.render(scene, camera);
 	requestAnimationFrame(animate);
 }
