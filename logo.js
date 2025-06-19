@@ -9,7 +9,7 @@ const camera = new THREE.PerspectiveCamera(80, window.innerWidth / window.innerH
 camera.position.set(0, 0, 80);
 
 // ------ Renderer ------
-const renderer = new THREE.WebGLRenderer(/*{ alpha: true}*/);
+const renderer = new THREE.WebGLRenderer({ alpha: true});
 renderer.setSize(logoContainer.clientWidth, logoContainer.clientHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 logoContainer.appendChild(renderer.domElement);
