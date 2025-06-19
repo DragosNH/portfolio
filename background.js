@@ -93,8 +93,16 @@ const octMat = new THREE.MeshStandardMaterial({
 	opacity: 1,
 	color: 0xadd8e6,
 	roughness: 0,
-	metalness: 1,
+	metalness: 0.8,
 })
+
+const geoWireframe = new THREE.WireframeGeometry(octGeo);
+const geoLine = new THREE.LineSegments(geoWireframe);
+geoLine.material.depthTest = false;
+geoLine.material.opacity = 0.50;
+geoLine.material.transparent = true;
+geoLine.material.color = 0x13333e;
+
 const oct = new THREE.Mesh(octGeo, octMat);
 
 
@@ -102,6 +110,7 @@ const oct = new THREE.Mesh(octGeo, octMat);
 scene.add(mainSphere);
 scene.add(mainBox);
 scene.add(oct);
+oct.add(geoLine);
 oct.position.z += 15;
 mainSphere.renderOrder = 1;
 
