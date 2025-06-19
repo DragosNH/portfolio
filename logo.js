@@ -23,11 +23,17 @@ requestAnimationFrame(() => {
 	renderer.setSize(width, height);
 });
 
+// ------ Colors ------
+// #add8e6 Light blue
+// #13333e Dark blue
 
-const geometry = new THREE.BoxGeometry(8,8,8);
-const texture = new THREE.MeshBasicMaterial({color: 0x00ff00});
-const cube = new THREE.Mesh(geometry, texture);
-scene.add(cube)
+
+const circleGeo = new THREE.CircleGeometry(5, 32);
+const circleMat = new THREE.MeshBasicMaterial({color: 0x13333e});
+const circle = new THREE.Mesh(circleGeo, circleMat);
+
+
+scene.add(circle);
 
 
 function animate() {
