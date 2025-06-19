@@ -46,7 +46,6 @@ const cilinderMat = new THREE.MeshBasicMaterial({
 });
 const penBody = new THREE.Mesh(cilinderGeo, cilinderMat);
 penBody.position.y += 6.5;
-// penBody.rotation.z -= 0.5;
 
 // --- Button ---
 const btnGeo = new THREE.BoxGeometry(3, 6, 6);
@@ -67,14 +66,17 @@ torus.rotation.x = 4.7;
 torus.position.y -= 7.5;
 
 
-// --- Groups ---
+// ------ Groups ------
+const penBodyGroup = new THREE.Group();
+penBodyGroup.add(penBody);
+penBodyGroup.add(penBtn);
+penBodyGroup.add(torus);
+// penBodyGroup.rotation.z -= 0.5;
 
+
+// ------ Objects added in the scene ------
 scene.add(circle);
-
-
-scene.add(penBody);
-scene.add(penBtn);
-scene.add(torus);
+scene.add(penBodyGroup);
 
 function animate() {
 
