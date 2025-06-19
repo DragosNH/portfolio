@@ -42,45 +42,49 @@ const circle = new THREE.Mesh(circleGeo, circleMat);
 
 // --- Pen body ---
 const cilinderGeo = new THREE.CylinderGeometry(5.5, 5.5, 65, 36);
-const cilinderMat = new THREE.MeshBasicMaterial({
+const lightMat = new THREE.MeshBasicMaterial({
 	color: 0xadd8e6
 });
-const penBody = new THREE.Mesh(cilinderGeo, cilinderMat);
+const penBody = new THREE.Mesh(cilinderGeo, lightMat);
 penBody.position.y += 7.5;
 
 
 // --- Button ---
 const btnGeo = new THREE.BoxGeometry(4.5, 12, 7);
-const btnMat = new THREE.MeshBasicMaterial({
+const darkermat = new THREE.MeshBasicMaterial({
 	color: 0x13333e,
 });
-const penBtn = new THREE.Mesh(btnGeo, btnMat);
+const penBtn = new THREE.Mesh(btnGeo, darkermat);
 penBtn.position.y += 20;
 penBtn.position.z += 3.5;
 
 
 // --- Torus around pen body ---
 const torusGeo = new THREE.TorusGeometry(7, 1, 15, 40);
-const torusMat = new THREE.MeshBasicMaterial({
-	color: 0x13333e,
-});
-const torus = new THREE.Mesh(torusGeo, torusMat);
+const torus = new THREE.Mesh(torusGeo, darkermat);
 torus.rotation.x = 4.7;
 torus.position.y -= 19;
 
 
 // --- Pen head ---
 const penHeadGeo = new THREE.CylinderGeometry(5.5, 1.8, 15, 36);
-const penHeadMat = new THREE.MeshBasicMaterial({
-	color: 0xadd8e6,
-});
-const penHead = new THREE.Mesh(penHeadGeo, penHeadMat);
+const penHead = new THREE.Mesh(penHeadGeo, lightMat);
 penHead.position.y -= 35;
 
 // --- Pointer ---
 const pointerGeo = new THREE.CylinderGeometry(1.6, 0.5, 5, 36);
-const pointer = new THREE.Mesh(pointerGeo, penHeadMat);
+const pointer = new THREE.Mesh(pointerGeo, lightMat);
 pointer.position.y -= 45;
+
+// --- Grater sign using Cilinder ---
+const superiorGraterGeo = new THREE.CylinderGeometry(4, 4, 40, 36);
+const superiorGrater = new THREE.Mesh(superiorGraterGeo, lightMat);
+superiorGrater.position.x += 45;
+superiorGrater.rotation.z += 45;
+const inferiourGrater = new THREE.Mesh(superiorGraterGeo, lightMat);
+inferiourGrater.position.x += 45;
+inferiourGrater.position.y -= 20;
+inferiourGrater.rotation.z -= 45;
 
 
 // ------ Groups ------
@@ -97,6 +101,11 @@ headGroup.add(pointer);
 const penGroup = new THREE.Group();
 penGroup.add(penBodyGroup);
 penGroup.add(headGroup);
+// --- Superior than ---
+const superiorThan = new THREE.Group();
+superiorThan.add(superiorGrater);
+superiorThan.add(inferiourGrater);
+superiorThan.position.y += 5
 
 penGroup.rotation.z -= 0.5;
 
@@ -104,6 +113,7 @@ penGroup.rotation.z -= 0.5;
 // ------ Objects added in the scene ------
 scene.add(circle);
 scene.add(penGroup);
+scene.add(superiorThan);
 
 function animate() {
 
