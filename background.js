@@ -50,9 +50,6 @@ const pointLight = new THREE.PointLight( 0xff0000, 1, 100 );
 pointLight.position.set( 25, 35, 40 );
 scene.add( pointLight );
 
-// #add8e6 Light blue
-// #13333e Dark blue
-
 //------ Objects ------ 
 // --- Main sphere ---
 const mainGeo = new THREE.SphereGeometry(10, 32, 16);

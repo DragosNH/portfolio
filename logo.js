@@ -5,7 +5,7 @@ const logoContainer = document.querySelector('.logo');
 // ------ Scene ------
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(80, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.set(0, 0, 10);
+camera.position.set(0, 0, 50);
 
 // ------ Renderer ------
 const renderer = new THREE.WebGLRenderer({ alpha: true});
@@ -27,14 +27,32 @@ requestAnimationFrame(() => {
 // #add8e6 Light blue
 // #13333e Dark blue
 
-
-const circleGeo = new THREE.CircleGeometry(5, 32);
+// ------ Objects ------
+// --- Background Circle ---
+const circleGeo = new THREE.CircleGeometry(30, 32);
 const circleMat = new THREE.MeshBasicMaterial({color: 0x13333e});
 const circle = new THREE.Mesh(circleGeo, circleMat);
 
+// --- Pen bodyr ---
+const cilinderGeo = new THREE.CylinderGeometry(3.5, 3.5, 40, 36);
+const cilinderMat = new THREE.MeshBasicMaterial({
+	color: 0xadd8e6
+});
+const penBody = new THREE.Mesh(cilinderGeo, cilinderMat);
+penBody.position.y += 2.5;
+// penBody.rotation.z -= 0.5;
+
+// --- Button ---
+const btnGeo = new THREE.BoxGeometry(1.2, 3, 50);
+const btnMat = new THREE.MeshBasicMaterial({
+	color: 0x13333e,
+});
+const penBtn = new THREE.Mesh(btnGeo, btnMat);
+penBtn.position.y += 6.5;
 
 scene.add(circle);
-
+scene.add(penBody);
+scene.add(penBtn)
 
 function animate() {
 
