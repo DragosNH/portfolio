@@ -5,8 +5,7 @@ const container = document.querySelector(".background");
 // ------ Scene ------
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000);
-camera.position.set(-50
-	, 35, 80);
+camera.position.set(-50, 30, 80);
 
 // ------ Background ------
 scene.environment = new THREE.CubeTextureLoader()
@@ -24,7 +23,7 @@ scene.background = new THREE.Color(0xadd8e6);
 
 // ------ Renderer ------
 const renderer = new THREE.WebGLRenderer();
-renderer.setSize(container.clientWidth, container.clientWidth);
+renderer.setSize(container.clientWidth, container.clientHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 container.appendChild(renderer.domElement);
 
