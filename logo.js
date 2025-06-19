@@ -57,12 +57,24 @@ const penBtn = new THREE.Mesh(btnGeo, btnMat);
 penBtn.position.y += 12;
 penBtn.position.z += 1;
 
-// --- Circle around pen body ---
+// --- Torus around pen body ---
+const torusGeo = new THREE.TorusGeometry(4, 0.5, 15, 40);
+const torusMat = new THREE.MeshBasicMaterial({
+	color: 0x13333e,
+});
+const torus = new THREE.Mesh(torusGeo, torusMat);
+torus.rotation.x = 4.7;
+torus.position.y -= 7.5;
 
+
+// --- Groups ---
 
 scene.add(circle);
+
+
 scene.add(penBody);
-scene.add(penBtn)
+scene.add(penBtn);
+scene.add(torus);
 
 function animate() {
 
