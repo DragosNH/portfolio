@@ -39,13 +39,14 @@ const circleMat = new THREE.MeshBasicMaterial({
 });
 const circle = new THREE.Mesh(circleGeo, circleMat);
 
-// --- Pen bodyr ---
+// --- Pen body ---
 const cilinderGeo = new THREE.CylinderGeometry(3.5, 3.5, 35, 36);
 const cilinderMat = new THREE.MeshBasicMaterial({
 	color: 0xadd8e6
 });
 const penBody = new THREE.Mesh(cilinderGeo, cilinderMat);
-penBody.position.y += 6.5;
+penBody.position.y += 7.5;
+
 
 // --- Button ---
 const btnGeo = new THREE.BoxGeometry(3, 6, 6);
@@ -56,6 +57,7 @@ const penBtn = new THREE.Mesh(btnGeo, btnMat);
 penBtn.position.y += 12;
 penBtn.position.z += 1;
 
+
 // --- Torus around pen body ---
 const torusGeo = new THREE.TorusGeometry(4, 0.5, 15, 40);
 const torusMat = new THREE.MeshBasicMaterial({
@@ -64,6 +66,20 @@ const torusMat = new THREE.MeshBasicMaterial({
 const torus = new THREE.Mesh(torusGeo, torusMat);
 torus.rotation.x = 4.7;
 torus.position.y -= 7.5;
+
+
+// --- Pen head ---
+const penHeadGeo = new THREE.CylinderGeometry(3.5, 1.8, 12, 36);
+const penHeadMat = new THREE.MeshBasicMaterial({
+	color: 0xadd8e6,
+});
+const penHead = new THREE.Mesh(penHeadGeo, penHeadMat);
+penHead.position.y -= 17.5;
+
+// --- Pointer ---
+const pointerGeo = new THREE.CylinderGeometry(1.6, 0.5, 5, 36);
+const pointer = new THREE.Mesh(pointerGeo, penHeadMat);
+pointer.position.y -= 25;
 
 
 // ------ Groups ------
@@ -77,6 +93,8 @@ penBodyGroup.add(torus);
 // ------ Objects added in the scene ------
 scene.add(circle);
 scene.add(penBodyGroup);
+scene.add(penHead); // for now
+scene.add(pointer); // for now
 
 function animate() {
 
