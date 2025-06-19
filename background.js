@@ -23,7 +23,7 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-// const controls = new OrbitControls( camera, renderer.domElement );
+const controls = new OrbitControls( camera, renderer.domElement );
 
 // ------ Responsive Background ------
 window.addEventListener('resize', () => {
@@ -64,7 +64,7 @@ const mainMat = new THREE.MeshPhysicalMaterial({
 });
 const mainSphere = new THREE.Mesh(mainGeo, mainMat);
 
-// --- Bube inside the sphere ---
+// --- Cube inside the sphere ---
 const secGeo = new THREE.BoxGeometry(8,8,8);
 const secMat = new THREE.MeshPhysicalMaterial({
 	alphaHash: true,
@@ -83,20 +83,35 @@ const secMat = new THREE.MeshPhysicalMaterial({
 	envMapIntensity: 1,
 	reflectivity: 1.0,
 })
-const box = new THREE.Mesh(secGeo, secMat);
+const mainBox = new THREE.Mesh(secGeo, secMat);
+
+// --- Octahedron that orbits around the sphere ---
+
+const octGeo = new THREE.OctahedronGeometry(5, 1);
+const octMat = new THREE.MeshStandardMaterial({
+	transparent: false,
+	opacity: 1,
+	color: 0xadd8e6,
+	roughness: 0,
+	metalness: 1,
+})
+const oct = new THREE.Mesh(octGeo, octMat);
+
 
 // ------ Object added to the scene ------
 scene.add(mainSphere);
-scene.add(box);
+scene.add(mainBox);
+scene.add(oct);
+oct.position.z += 15;
 mainSphere.renderOrder = 1;
 
 
 // ------ object rotation on scroll ------
-window.addEventListener('wheel', (event) => {
-    if (event.deltaY > 0) {
-        box.rotation.y += 0.5;
+window.addEventListener('wheel', (e) => {
+    if (e.deltaY > 0) {
+        mainBox.rotation.y += 0.5;
     } else {
-        box.rotation.y -= 0.5;
+        mainBox.rotation.y -= 0.5;
     }
 });
 
@@ -104,7 +119,7 @@ window.addEventListener('wheel', (event) => {
 // ------ Animations ------
 function animate(){
 
-    // controls.update();
+    controls.update();
     renderer.render(scene, camera);
     requestAnimationFrame(animate);
 }
