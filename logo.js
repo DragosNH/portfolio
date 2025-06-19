@@ -76,7 +76,7 @@ const pointerGeo = new THREE.CylinderGeometry(1.6, 0.5, 5, 36);
 const pointer = new THREE.Mesh(pointerGeo, lightMat);
 pointer.position.y -= 45;
 
-// --- Grater sign using Cilinder ---
+// --- Grater sign using Cilinders ---
 const superiorGraterGeo = new THREE.CylinderGeometry(4, 4, 40, 36);
 const superiorGrater = new THREE.Mesh(superiorGraterGeo, lightMat);
 superiorGrater.position.x += 45;
@@ -86,6 +86,14 @@ inferiourGrater.position.x += 45;
 inferiourGrater.position.y -= 20;
 inferiourGrater.rotation.z -= 45;
 
+// --- Less sign using cilinders ---
+const superiorLesser = new THREE.Mesh(superiorGraterGeo, lightMat);
+superiorLesser.position.x -= 45;
+superiorLesser.rotation.z -= 45;
+const inferiourLesser = new THREE.Mesh(superiorGraterGeo, lightMat);
+inferiourLesser.position.x -= 45;
+inferiourLesser.position.y -= 20;
+inferiourLesser.rotation.z += 45;
 
 // ------ Groups ------
 // --- Body group ---
@@ -101,11 +109,17 @@ headGroup.add(pointer);
 const penGroup = new THREE.Group();
 penGroup.add(penBodyGroup);
 penGroup.add(headGroup);
-// --- Superior than ---
-const superiorThan = new THREE.Group();
-superiorThan.add(superiorGrater);
-superiorThan.add(inferiourGrater);
-superiorThan.position.y += 5
+// --- Grater than ---
+const graterThan = new THREE.Group();
+graterThan.add(superiorGrater);
+graterThan.add(inferiourGrater);
+graterThan.position.y += 5;
+
+const lesserThan = new THREE.Group();
+lesserThan.add(superiorLesser);
+lesserThan.add(inferiourLesser);
+lesserThan.position.y += 5;
+
 
 penGroup.rotation.z -= 0.5;
 
@@ -113,7 +127,8 @@ penGroup.rotation.z -= 0.5;
 // ------ Objects added in the scene ------
 scene.add(circle);
 scene.add(penGroup);
-scene.add(superiorThan);
+scene.add(graterThan);
+scene.add(lesserThan);
 
 function animate() {
 
