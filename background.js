@@ -1,5 +1,7 @@
 import * as THREE from 'three';
 
+const container = document.querySelector(".background");
+
 // ------ Scene ------
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -18,16 +20,19 @@ scene.environment = new THREE.CubeTextureLoader()
 		'nz.png'
 	]);
 
+scene.background = new THREE.Color(0xadd8e6);
+
 // ------ Renderer ------
 const renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
+renderer.setSize(container.clientWidth, container.clientWidth);
+renderer.setPixelRatio(window.devicePixelRatio);
+container.appendChild(renderer.domElement);
 
 
 // ------ Responsive Background ------
 window.addEventListener('resize', () => {
-	const width = window.innerWidth;
-	const height = window.innerHeight;
+	const width = container.clientWidth;
+	const height = container.clientHeight;
 
 	camera.aspect = width / height;
 	camera.updateProjectionMatrix();
@@ -53,7 +58,7 @@ scene.add( pointLight );
 // --- Main sphere ---
 const mainGeo = new THREE.SphereGeometry(10, 32, 16);
 const mainMat = new THREE.MeshPhysicalMaterial({
-	color: 0xffffff,
+	color: 0xf0f0f0,
 	transparent: true,
 	transmission: 1,
 	opacity: 0.5,
@@ -62,7 +67,7 @@ const mainMat = new THREE.MeshPhysicalMaterial({
 	ior: 1.5,
 	thickness: 0.01,
 	specularIntensity: 1,
-	specularColor: 0xffffff,
+	specularColor: 0x13333e,
 	envMapIntensity: 1,
 });
 const mainSphere = new THREE.Mesh(mainGeo, mainMat);
@@ -71,18 +76,17 @@ const mainSphere = new THREE.Mesh(mainGeo, mainMat);
 const secGeo = new THREE.BoxGeometry(8, 8, 8);
 const secMat = new THREE.MeshPhysicalMaterial({
 	alphaHash: true,
-	color: 0xadd8e6,
+	color: 0x13333e,
 	transparent: true,
 	emissive: 0x000000,
 	transmission: 1,
 	opacity: 1,
-	transparent: true,
 	metalness: 1,
 	roughness: 0,
 	ior: 2.33,
 	thickness: 0,
 	specularIntensity: 1,
-	specularColor: 0xffffff,
+	specularColor: 0xadd8e6,
 	envMapIntensity: 1,
 	reflectivity: 1.0,
 })
@@ -104,15 +108,10 @@ const geoLine = new THREE.LineSegments(geoWireframe);
 geoLine.material.depthTest = false;
 geoLine.material.opacity = 0.25;
 geoLine.material.transparent = true;
-geoLine.material.color = 0x13333e;
+geoLine.material.color = new THREE.Color(0xadd8e6);
 
 const oct = new THREE.Mesh(octGeo, octMat);
 const octPivot = new THREE.Object3D();
-
-// --- textured object ---
-
-
-
 
 // ------ Object added to the scene ------
 scene.add(mainSphere);
@@ -122,14 +121,14 @@ scene.add(octPivot);
 const octGroup = new THREE.Group();
 octGroup.add(oct);
 octGroup.add(geoLine);
-octGroup.position.z = -25;
+octGroup.position.set(15, 0, 0);
 octPivot.add(octGroup);
 
 mainSphere.renderOrder = 1;
 
 
 // ------ object rotation on scroll ------
-window.addEventListener('wheel', (e) => {
+window.addEventListener('scroll', (e) => {
 	if (e.deltaY > 0) {
 		mainBox.rotation.y += 0.5;
 		oct.rotation.x += 0.5;
