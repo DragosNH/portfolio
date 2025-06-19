@@ -37,16 +37,17 @@ window.addEventListener('resize', () => {
 });
 
 // ------ Lighting ------
-const directionalLight = new THREE.DirectionalLight( 0x00ffff, 1 );
+const directionalLight = new THREE.DirectionalLight( 0xffffff, 1 );
 scene.add( directionalLight );
 
-const light = new THREE.AmbientLight( 0x404040 );
+const light = new THREE.AmbientLight( 0xffffff );
 scene.add( light );
 
 // #add8e6 Light blue
 // #13333e Dark blue
 
 //------ Objects ------ 
+// --- Main sphere ---
 const mainGeo = new THREE.SphereGeometry(10,32,16);
 const mainMat = new THREE.MeshPhysicalMaterial({
     color: 0xffffff,
@@ -63,10 +64,12 @@ const mainMat = new THREE.MeshPhysicalMaterial({
 });
 const mainSphere = new THREE.Mesh(mainGeo, mainMat);
 
+// --- Bube inside the sphere ---
 const secGeo = new THREE.BoxGeometry(8,8,8);
 const secMat = new THREE.MeshPhysicalMaterial({
 	alphaHash: true,
 	color: 0xadd8e6,
+	transparent: true,
 	emissive: 0x000000,
 	transmission:1,
 	opacity: 1,
@@ -81,14 +84,11 @@ const secMat = new THREE.MeshPhysicalMaterial({
 	reflectivity: 1.0,
 })
 const box = new THREE.Mesh(secGeo, secMat);
-const boxPivot = new THREE.Object3D();
 
+// ------ Object added to the scene ------
 scene.add(mainSphere);
+scene.add(box);
 mainSphere.renderOrder = 1;
-scene.add(boxPivot);
-boxPivot.add(box);
-boxPivot.rotation.z += 0.05;
-
 
 
 // ------ object rotation on scroll ------
