@@ -49,4 +49,24 @@ body{
     background-color: var(--dark-blue);
     position: absolute;
     bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    & .logo-footer{
+        width: 80px;
+        height: 80px;
+        margin: 0;
+    }
+
+    & .footerContactTitle{
+        color: var(--light-blue);
+        margin: 10px 0 10px 0;
+    }
+
+    .logo-icon{
+        width: 25px;
+        margin: 0 5px;
+    }
 }
+
