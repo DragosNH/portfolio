@@ -139,7 +139,7 @@ logoContainer.addEventListener("click", function () {
 		isRotating = true;
 	}
 
-	setTimeout(() => {window.location.href = "index.html";}, 1000);
+	setTimeout(() => {window.location.href = "index.html";}, 2000);
 });
 
 

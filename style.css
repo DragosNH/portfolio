@@ -1,5 +1,12 @@
+:root{
+    --light-blue: #add8e6;
+    --dark-blue: #13333e;
+}
+
 body{
     margin: 0;
+    font-family: "Metamorphous", serif;
+    color: var(--dark-blue);
 }
 
 .background {
