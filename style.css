@@ -27,10 +27,9 @@ body{
 /* --------- Container --------- */
 .container{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     flex-wrap: wrap;
+    margin: 0 10vw;
 }
 
 /* ------ Title Container ------ */
@@ -38,6 +37,16 @@ body{
 .title-container{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: center;
+}
+
+
+
+/* --------- Footer --------- */
+.footer{
+    width: 100vw;
+    height: 80px;
+    background-color: var(--dark-blue);
+    position: absolute;
+    bottom: 0;
 }
