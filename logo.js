@@ -107,11 +107,13 @@ headGroup.add(pointer);
 const penGroup = new THREE.Group();
 penGroup.add(penBodyGroup);
 penGroup.add(headGroup);
+penGroup.rotation.z -= 0.5;
 // --- Grater than ---
 const graterThan = new THREE.Group();
 graterThan.add(superiorGrater);
 graterThan.add(inferiourGrater);
 graterThan.position.y += 5;
+// --- Lesser than ---
 
 const lesserThan = new THREE.Group();
 lesserThan.add(superiorLesser);
@@ -119,7 +121,6 @@ lesserThan.add(inferiourLesser);
 lesserThan.position.y += 5;
 
 
-penGroup.rotation.z -= 0.5;
 
 
 // ------ Objects added in the scene ------
@@ -127,6 +128,10 @@ scene.add(circle);
 scene.add(penGroup);
 scene.add(graterThan);
 scene.add(lesserThan);
+
+// logoContainer.addEventListener("click", function (){
+
+// });
 
 function animate() {
 
