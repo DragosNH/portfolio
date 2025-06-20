@@ -25,6 +25,34 @@ body{
 }
 
 /* --------- Container --------- */
+.header{
+    width: 100vw;
+    height: 80px;
+    background-color: var(--dark-blue);
+    color: var(--light-blue);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    & button{
+        border: 2px solid var(--light-blue);
+        border-radius: 25px;
+        background-color: var(--dark-blue);
+        color: var(--light-blue);
+        font-size: 24px;
+        padding: 5px;
+        width: 120px;
+    }
+
+    & .active{
+        border: 2px solid var(--dark-blue);
+        background-color: var(--light-blue);
+        color: var(--dark-blue);
+        box-shadow: 0 0 15px 2px var(--light-blue);
+    }
+}
+
+/* --------- Container --------- */
 .container{
     display: flex;
     flex-direction: column;
