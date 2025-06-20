@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { rotate } from 'three/tsl';
 
 // ------ Query serlector ------
 const logoContainer = document.querySelector('.logo');
@@ -9,7 +10,7 @@ const camera = new THREE.PerspectiveCamera(80, window.innerWidth / window.innerH
 camera.position.set(0, 0, 80);
 
 // ------ Renderer ------
-const renderer = new THREE.WebGLRenderer({ alpha: true});
+const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(logoContainer.clientWidth, logoContainer.clientHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 logoContainer.appendChild(renderer.domElement);
@@ -125,15 +126,36 @@ logo.add(penGroup);
 logo.add(graterThan);
 logo.add(lesserThan);
 
-
 // ------ Objects added in the scene ------
 scene.add(logo);
 
-// logoContainer.addEventListener("click", function (){
+// ------ Rotation on click ------
+let isRotating = false;
+let targetRotation = 0;
 
-// });
+logoContainer.addEventListener("click", function () {
+	if (!isRotating) {
+		targetRotation += 2 * Math.PI; 
+		isRotating = true;
+	}
+	setTimeout(() => {window.location.href = "index.html";}, 1000);
+});
+
 
 function animate() {
+
+	// --- Rotation animation ---
+	if (isRotating) {
+		const rotationSpeed = 0.05; 
+		const delta = targetRotation - logo.rotation.y;
+
+		if (Math.abs(delta) < 0.01) {
+			logo.rotation.y = targetRotation;
+			isRotating = false;
+		} else {
+			logo.rotation.y += delta * rotationSpeed;
+		}
+	}
 
 	renderer.render(scene, camera);
 	requestAnimationFrame(animate);
