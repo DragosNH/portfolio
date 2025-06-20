@@ -114,20 +114,20 @@ graterThan.add(superiorGrater);
 graterThan.add(inferiourGrater);
 graterThan.position.y += 5;
 // --- Lesser than ---
-
 const lesserThan = new THREE.Group();
 lesserThan.add(superiorLesser);
 lesserThan.add(inferiourLesser);
 lesserThan.position.y += 5;
 
-
+const logo = new THREE.Group();
+logo.add(circle);
+logo.add(penGroup);
+logo.add(graterThan);
+logo.add(lesserThan);
 
 
 // ------ Objects added in the scene ------
-scene.add(circle);
-scene.add(penGroup);
-scene.add(graterThan);
-scene.add(lesserThan);
+scene.add(logo);
 
 // logoContainer.addEventListener("click", function (){
 
