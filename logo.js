@@ -1,6 +1,6 @@
 import * as THREE from 'three';
-import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
+// ------ Query serlector ------
 const logoContainer = document.querySelector('.logo');
 
 // ------ Scene ------
@@ -24,8 +24,6 @@ requestAnimationFrame(() => {
 	renderer.setSize(width, height);
 });
 
-
-const controls = new OrbitControls(camera, renderer.domElement);
 
 // ------ Colors ------
 // #add8e6 Light blue
