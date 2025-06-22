@@ -1,5 +1,4 @@
 import * as THREE from 'three';
-import { rotate } from 'three/tsl';
 
 // ------ Query serlector ------
 const logoContainer = document.querySelector('.logo');
@@ -135,11 +134,11 @@ let targetRotation = 0;
 
 logoContainer.addEventListener("click", function () {
 	if (!isRotating) {
-		targetRotation += 2 * Math.PI; 
+		targetRotation += 2 * Math.PI;
 		isRotating = true;
 	}
 
-	setTimeout(() => {window.location.href = "index.html";}, 2000);
+	setTimeout(() => { window.location.href = "index.html"; }, 2000);
 });
 
 
@@ -147,7 +146,7 @@ function animate() {
 
 	// --- Rotation animation ---
 	if (isRotating) {
-		const rotationSpeed = 0.05; 
+		const rotationSpeed = 0.05;
 		const delta = targetRotation - logo.rotation.y;
 
 		if (Math.abs(delta) < 0.01) {
