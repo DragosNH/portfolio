@@ -5,8 +5,16 @@
 
 body{
     margin: 0;
-    font-family: "Metamorphous", serif;
     color: var(--dark-blue);
+}
+
+h1, h2, h3, h4, button {
+    font-family: "Comic Relief", system-ui;
+}
+
+p{
+    font-family: "Domine", serif;
+    font-size: 20px;
 }
 
 .background {
