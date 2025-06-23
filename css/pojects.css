@@ -7,6 +7,8 @@
     --dark-blue: #13333e;
     --lighter-darkblue: #1d3d48;
     --darker-darkblue: #13272e;
+
+    --lighter-darkblue-rgba: rgba(29, 61, 72, 0.8);
 }
 
 body{
@@ -102,7 +104,56 @@ p{
 }
 
 
+/* --------- Apps container --------- */
 
+.phoneApp-container{
+    background-color: var(--lighter-darkblue-rgba);
+    width: 80vw;
+    height: 450px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    overflow: scroll;
+
+    & .phoneScreen{
+        height: 90%;
+        flex-shrink: 1;
+        margin-top: 10px;
+    }
+
+    & .project-info{
+        color: var(--light-blue);
+        flex-shrink: 2;
+        max-width: 500px;
+        padding: 10px;
+    }
+
+    & .phoneapp-btn{
+        background-color: var(--darker-darkblue);
+        color: var(--lighter-lightblue);
+        text-decoration: none;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        width: 100px;
+        border-radius: 15px;
+
+
+        & img{
+            width: 30px;
+            margin-right: 15px;
+        }
+    }
+
+    & .phoneapp-btn:hover{
+        background-color: var(--dark-blue);
+    }
+
+    & .phoneapp-btn:active{
+        background-color: var(--lighter-darkblue);
+    }
+}
 
 /* --------- Footer --------- */
 .footer {
