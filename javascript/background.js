@@ -126,12 +126,12 @@ mainSphere.renderOrder = 1;
 // ------ object rotation on scroll ------
 window.addEventListener('scroll', (e) => {
 	if (e.deltaY > 0) {
-		mainBox.rotation.y += 0.5;
-		oct.rotation.x += 0.5;
+		mainBox.rotation.y += 0.05;
+		oct.rotation.x += 0.05;
 		octPivot.rotation.x += 0.05;
 	} else {
-		mainBox.rotation.y -= 0.5;
-		oct.rotation.x -= 0.5;
+		mainBox.rotation.y -= 0.05;
+		oct.rotation.x -= 0.05;
 		octPivot.rotation.x -= 0.05;
 	}
 });

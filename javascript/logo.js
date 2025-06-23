@@ -118,7 +118,7 @@ const lesserThan = new THREE.Group();
 lesserThan.add(superiorLesser);
 lesserThan.add(inferiourLesser);
 lesserThan.position.y += 5;
-
+// --- The fill group ---
 const logo = new THREE.Group();
 logo.add(circle);
 logo.add(penGroup);
