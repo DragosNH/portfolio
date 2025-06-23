@@ -127,6 +127,72 @@ p{
     flex-wrap: wrap;
 }
 
+/* --------- Studies --------- */
+
+.studies-container{
+    margin: 20px 0;
+}
+
+/* ------ Cards ------ */
+
+.studies {
+  display: inline-block;
+  width: 280px;
+  height: 340px;
+  perspective: 600px;
+  margin: 7px;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform-origin: center right;
+  transition: transform 1s;
+}
+
+.card.is-flipped {
+  transform: translateX(-100%) rotateY(-180deg);
+}
+
+.card_face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: var(--light-blue);
+  text-align: center;
+  font-weight: bold;
+  backface-visibility: hidden;
+}
+
+.card_face-front {
+  background: var(--lighter-darkblue);
+}
+
+.card_face-back {
+  background: var(--darker-darkblue);
+  transform: rotateY(180deg);
+}
+
+
+.logoImg{
+    width: 150px;
+    background-color: var(--lighter-lightblue);
+    margin-top: 120px;
+}
+
+.backCard-title{
+    font-size: 24px;
+}
+
+.card-text{
+    color: var(--light-blue);
+    font-family: "Domine", serif;
+
+}
+
 /* --------- Footer --------- */
 .footer{
     width: 100vw;
