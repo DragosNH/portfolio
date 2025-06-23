@@ -127,6 +127,10 @@ p{
     flex-wrap: wrap;
 }
 
+.descritionTxt{
+    margin-right: 10vw;
+}
+
 /* --------- Studies --------- */
 
 .studies-container{
@@ -178,7 +182,7 @@ p{
 
 
 .logoImg{
-    width: 150px;
+    width: 180px;
     background-color: var(--lighter-lightblue);
     margin-top: 120px;
 }
