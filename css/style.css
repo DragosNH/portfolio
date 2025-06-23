@@ -42,8 +42,8 @@ p{
 }
 
 .logo{
-    width: 150px;
-    height: 150px;
+    width: 350px;
+    height: 350px;
 }
 
 /* --------- Container --------- */
@@ -79,8 +79,11 @@ p{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    margin: 0 10vw;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10vw 0 10vw;
     width: 90vw;
+    height: 90vh;
 }
 
 /* ------ Title Container ------ */
@@ -99,8 +102,8 @@ p{
     width: 100vw;
     height: 80px;
     background-color: var(--dark-blue);
-    position: absolute;
-    bottom: 0;
+    position: relative;
+    /* bottom: 0; */
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
