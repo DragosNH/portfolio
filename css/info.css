@@ -15,7 +15,7 @@
 }
 
 .subtitle{
-    margin-bottom: 15px;
+    margin: 25px 0 25px 0;
 }
 
 .icon-container{
@@ -23,12 +23,23 @@
     margin: 7px;
     padding: 10px;
     background-color: var(--lighter-lightblue);
-
 }
 
 .icon-container:hover{
     box-shadow: 7px 10px 5px 5px var(--darker-lightblue);
 }
+
 .icon-img{
     width: 50px;
+}
+
+.graphic-programs-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.graphic-programs-icons{
+    display: flex;
+    flex-wrap: wrap;
 }
