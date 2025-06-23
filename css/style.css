@@ -1,6 +1,12 @@
 :root{
+    /* Light Blue */
     --light-blue: #add8e6;
+    --lighter-lightblue: #fbfdfd;
+    --darker-lightblue: #79b6c9;
+    /* Dark Blue */
     --dark-blue: #13333e;
+    --lighter-darkblue: #1d3d48;
+    --darker-darkblue: #13272e;
 }
 
 body{

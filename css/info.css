@@ -1,0 +1,34 @@
+:root{
+    /* Light Blue */
+    --light-blue: #add8e6;
+    --lighter-lightblue: #fbfdfd;
+    --darker-lightblue: #79b6c9;
+    /* Dark Blue */
+    --dark-blue: #13333e;
+    --lighter-darkblue: #1d3d48;
+    --darker-darkblue: #13272e;
+}
+
+.competences-icons{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.subtitle{
+    margin-bottom: 15px;
+}
+
+.icon-container{
+    border-radius: 15px;
+    margin: 7px;
+    padding: 10px;
+    background-color: var(--lighter-lightblue);
+
+}
+
+.icon-container:hover{
+    box-shadow: 7px 10px 5px 5px var(--darker-lightblue);
+}
+.icon-img{
+    width: 50px;
+}
