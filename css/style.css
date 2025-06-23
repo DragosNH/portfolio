@@ -103,7 +103,6 @@ p{
     height: 80px;
     background-color: var(--dark-blue);
     position: relative;
-    /* bottom: 0; */
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
