@@ -75,6 +75,12 @@ p{
         color: var(--dark-blue);
         box-shadow: 0 0 15px 2px var(--light-blue);
     }
+
+    & button:hover{
+        border: 2px solid var(--dark-blue);
+        background-color: var(--light-blue);
+        color: var(--dark-blue);
+    }
 }
 
 .container {
