@@ -136,6 +136,15 @@ p{
         padding: 10px;
     }
 
+     & .git-buttons{
+            display: flex;
+
+            & .phoneapp-btn{
+                width: 120px;
+                margin: 10px;
+            }
+        }
+
     & .phoneapp-btn{
         background-color: var(--darker-darkblue);
         color: var(--lighter-lightblue);
@@ -164,6 +173,10 @@ p{
             border: 2px solid; 
             margin: 1em auto; 
             padding: 1em;
+        }
+
+        & .gif{
+            width: 300px;
         }
     }
 
