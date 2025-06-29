@@ -1,0 +1,144 @@
+:root{
+    /* Light Blue */
+    --light-blue: #add8e6;
+    --lighter-lightblue: #fbfdfd;
+    --darker-lightblue: #79b6c9;
+    /* Dark Blue */
+    --dark-blue: #13333e;
+    --lighter-darkblue: #1d3d48;
+    --darker-darkblue: #13272e;
+}
+
+body{
+    margin: 0;
+    color: var(--dark-blue);
+}
+
+h1, h2, h3, h4, button {
+    font-family: "Comic Relief", system-ui;
+}
+
+h1{
+    margin: 0;
+    font-size: 32px;
+}
+h2{
+    margin: 0;
+}
+
+p{
+    font-family: "Domine", serif;
+    font-size: 20px;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -5;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.logo{
+    width: 350px;
+    height: 350px;
+}
+
+/* --------- Container --------- */
+.header{
+    width: 100vw;
+    height: 80px;
+    background-color: var(--dark-blue);
+    color: var(--light-blue);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    & button{
+        border: 2px solid var(--light-blue);
+        border-radius: 25px;
+        background-color: var(--dark-blue);
+        color: var(--light-blue);
+        font-size: 24px;
+        padding: 5px;
+        width: 120px;
+    }
+
+    & .active{
+        border: 2px solid var(--dark-blue);
+        background-color: var(--light-blue);
+        color: var(--dark-blue);
+        box-shadow: 0 0 15px 2px var(--light-blue);
+    }
+
+    & button:hover{
+        border: 2px solid var(--dark-blue);
+        background-color: var(--light-blue);
+        color: var(--dark-blue);
+    }
+}
+
+/* --------- Container --------- */
+.container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10vw 0 10vw;
+    width: 90vw;
+    height: 90vh;
+}
+
+/* ------ Title Container ------ */
+
+.title-container{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+
+
+/* --------- Footer --------- */
+.footer{
+    width: 100vw;
+    height: 80px;
+    background-color: var(--dark-blue);
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    & .logo-footer{
+        width: 80px;
+        height: 80px;
+        margin-left:10vw;
+    }
+
+    & .contact-footer{
+        margin-right: 10vw;
+    }
+
+    & .icons{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    & .footerContactTitle{
+        color: var(--light-blue);
+        margin: 10px 0 10px 0;
+    }
+
+    & .logo-icon{
+        width: 25px;
+    }
+
+    & .logo-icon:hover{
+        box-shadow: 0px 0px 10px 5px var(--light-blue);
+    }
+}
+
